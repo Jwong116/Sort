@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Sorts
 {
     public static void ascendingSort(String[] arr)
@@ -34,5 +37,39 @@ public class Sorts
         System.out.println();
     }
 
+    public static void printArray(List<String> list)
+    {
+        for (String n : list)
+        {
+            System.out.print(n + ", ");
+        }
+        System.out.println();
+    }
 
+    public static void ascendingSort(List<String> list)
+    {
+        for (int i = 0; i < list.size() - 1; i++) {
+            int lowPosition = i;
+            for (int h = i + 1; h < list.size(); h++)
+            {
+                if (list.get(h).compareTo(list.get(lowPosition)) < 0)
+                    lowPosition = h;
+            }
+            list.set(i, list.set(lowPosition, list.get(i)));
+        }
+    }
+
+    public static ArrayList<String> RemoveLongerThan(int lenMax, List<String> list)
+    {
+        ArrayList<String> removedList = new ArrayList<String>();
+        for (int i = list.size() - 1; i >= 0; i--)
+        {
+            if (list.get(i).length() > lenMax)
+            {
+                removedList.add(list.remove(i));
+            }
+        }
+
+        return removedList;
+    }
 }
